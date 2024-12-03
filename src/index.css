@@ -8,6 +8,11 @@ body{
   font-family: "Poppins", sans-serif;
 }
 
+ul .active{
+  color:rgb(250, 94, 3);
+  text-decoration: underline;
+}
+
 .light-theme {
   background-color: #F9FAFB; 
   color: #1F2937;

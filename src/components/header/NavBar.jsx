@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UtilitiContext } from "../../Context/UtilitiesProvider";
+import { NavLink } from "react-router";
 
 const NavBar = () => {
   const { theme, setTheme } = useContext(UtilitiContext);
@@ -8,18 +9,18 @@ const NavBar = () => {
     <div>
       <nav className="flex justify-between items-center px-2 py-4 md:w-11/12 mx-auto">
         <div className="flex justify-center items-center gap-2">
-          <img src="/public/fav-logo.jpg" alt="" className="w-16 h-16" />
+          <img src="/public/fav-logo.jpg" alt="" className="w-16 h-16 rounded-2xl" />
           <h1 className="text-xl md:text-3xl font-bold text-[#ff5103]">
             Crowd Nest
           </h1>
         </div>
         <div className="">
-          <ul className="hidden lg:flex justify-center items-center gap-8">
-            <li className="">Home</li>
-            <li className="">All Campaign</li>
-            <li className="">Add New Campaign</li>
-            <li className="">My Campaign</li>
-            <li className="">My Donations</li>
+          <ul className="hidden lg:flex justify-center items-center gap-8 cursor-pointer">
+            <NavLink to='/'><li className="">Home</li></NavLink>
+            <NavLink to='/allcampaign'><li className="">All Campaign</li></NavLink>
+            <NavLink to="/newcampaign"><li className="">Add New Campaign</li></NavLink>
+            <NavLink to='/mycampaign'><li className="">My Campaign</li></NavLink>
+            <NavLink to='/mydonation'><li className="">My Donations</li></NavLink>
           </ul>
         </div>
         <div className="flex gap-2 justify-center items-center">

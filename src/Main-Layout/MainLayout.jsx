@@ -7,7 +7,6 @@ import { UtilitiContext } from "../Context/UtilitiesProvider";
 
 const MainLayout = () => {
     const {theme} = useContext(UtilitiContext)
-    console.log(theme)
     return (
         <div className={`${theme?"light-theme":"dark-theme"}`}>
             <NavBar></NavBar>
