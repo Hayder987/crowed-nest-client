@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { UtilitiContext } from "../../Context/UtilitiesProvider";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
+import { register } from "swiper/element";
 
 const NavBar = () => {
   const { theme, setTheme } = useContext(UtilitiContext);
+  const navigate  = useNavigate();
  
   return (
     <div>
@@ -25,8 +27,8 @@ const NavBar = () => {
         </div>
         <div className="flex gap-2 justify-center items-center">
           <div className="flex gap-2 md:gap-4 font-semibold">
-            <button className="">Login</button>
-            <button className="bg-[#ff5103] text-white py-2 px-4">
+            <button onClick={()=> navigate('/login')} className="">Login</button>
+            <button onClick={()=> navigate('/register')} className="bg-[#ff5103] text-white py-2 px-4">
               Register
             </button>
           </div>
