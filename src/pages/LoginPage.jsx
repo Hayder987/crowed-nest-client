@@ -3,6 +3,12 @@ import background from "../assets/background-1.jpg";
 import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
+  const loginHandler = e =>{
+    e.preventDefault()
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+  }
     return (
         <div
       style={{
@@ -16,7 +22,7 @@ const LoginPage = () => {
       <div className="min-w-[100%] lg:min-w-[600px] rounded-xl bg-opacity-40 hover:bg-opacity-60 bg-[#010716] py-12 md:py-20 px-16 mx-auto mb-16">
         <h1 className="text-4xl font-bold text-center mb-6 text-white">Login</h1>
         <p className="text-center text-red-600 mb-4">fdshfdkjhfjd</p>
-        <form className="flex flex-col gap-10">
+        <form onSubmit={loginHandler} className="flex flex-col gap-10">
           
           <div className="">
             <label className="label">
