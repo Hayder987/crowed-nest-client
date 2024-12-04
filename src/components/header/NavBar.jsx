@@ -98,14 +98,14 @@ const NavBar = () => {
           </div>
         </div>
         <div onMouseLeave={()=> setHover(false)} className={`
-        bg-blue-200 bg-opacity-70 p-6 min-w-[250px] min-h-[300px] rounded-xl ${hover?"flex":"hidden"} absolute z-10 top-24 right-0 
+        bg-blue-200 bg-opacity-90 p-6 min-w-[250px] min-h-[300px] rounded-xl ${hover?"flex":"hidden"} absolute z-10 top-24 right-0 
           `}>
           <div className="w-full">
-            <h1 className="text-center text-2xl font-semibold">Welcome!</h1>
+            <h1 className="text-center text-2xl font-semibold text-black">Welcome!</h1>
             <div className="flex justify-center items-center my-6">
               <img src={user?.photoURL} alt="" className="w-28 h-28" />
             </div>
-            <h1 className="text-center text-2xl font-semibold">{user?.displayName}</h1>
+            <h1 className="text-center text-2xl font-semibold text-black">{user?.displayName}</h1>
             <div className="flex justify-center my-4">
               <button onClick={LogoutHandler} className="flex justify-center items-center gap-3 bg-[#ff5103] text-white font-medium py-2 px-4 text-xl ">
                 <span className="">Logout</span>
