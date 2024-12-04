@@ -1,15 +1,34 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UtilitiContext } from "../../Context/UtilitiesProvider";
 import { NavLink, useNavigate } from "react-router";
-import { register } from "swiper/element";
+import { AuthContext } from "../../Context/AuthProvider";
+import { MdLogout } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
   const { theme, setTheme } = useContext(UtilitiContext);
+  const {user ,loading, userLogout} = useContext(AuthContext)
   const navigate  = useNavigate();
+  const [hover, setHover] = useState(false)
+  console.log(hover);
+
+  const LogoutHandler = ()=>{
+    userLogout()
+    .then(()=>{
+      Swal.fire({
+        position: "top-end",
+        icon: "info",
+        title: "User Logout SuccessFully",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      setHover(false)
+    })
+  }
  
   return (
     <div>
-      <nav className="flex justify-between items-center px-2 py-4 md:w-11/12 mx-auto">
+      <nav className="flex relative justify-between items-center px-2 py-4 md:w-11/12 mx-auto">
         <div className="flex justify-center items-center gap-2">
           <img src="/public/fav-logo.jpg" alt="" className="w-16 h-16 rounded-2xl" />
           <h1 className="text-xl md:text-3xl font-bold text-[#ff5103]">
@@ -24,14 +43,29 @@ const NavBar = () => {
             <NavLink to='/mycampaign'><li className="">My Campaign</li></NavLink>
             <NavLink to='/mydonation'><li className="">My Donations</li></NavLink>
           </ul>
+          
         </div>
+        
         <div className="flex gap-2 justify-center items-center">
-          <div className="flex gap-2 md:gap-4 font-semibold">
+          {
+            loading?"":
+            <div className="">
+              {
+            user? <div
+            onMouseOver={() => setHover(true)}
+            onMouseOut={() => setHover(true)}
+             className="">
+              <img  src={user.photoURL} alt="" className="w-14 h-14 rounded-full border p-1" />
+            </div>:
+            <div className="flex gap-2 md:gap-4 font-semibold">
             <button onClick={()=> navigate('/login')} className="">Login</button>
             <button onClick={()=> navigate('/register')} className="bg-[#ff5103] text-white py-2 px-4">
               Register
             </button>
           </div>
+          }
+            </div>
+          }
           {/* Toggle */}
           <div onChange={()=>setTheme(!theme)} className="">
             <form className="">
@@ -63,9 +97,30 @@ const NavBar = () => {
             </form>
           </div>
         </div>
+        <div onMouseLeave={()=> setHover(false)} className={`
+        bg-blue-200 bg-opacity-70 p-6 min-w-[250px] min-h-[300px] rounded-xl ${hover?"flex":"hidden"} absolute z-10 top-24 right-0 
+          `}>
+          <div className="w-full">
+            <h1 className="text-center text-2xl font-semibold">Welcome!</h1>
+            <div className="flex justify-center items-center my-6">
+              <img src={user?.photoURL} alt="" className="w-24 h-24" />
+            </div>
+            <h1 className="text-center text-2xl font-semibold">{user?.displayName}</h1>
+            <div className="flex justify-center my-4">
+              <button onClick={LogoutHandler} className="flex justify-center items-center gap-3 bg-[#ff5103] text-white font-medium py-2 px-4 text-xl ">
+                <span className="">Logout</span>
+                <span className=""><MdLogout /></span>
+              </button>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
   );
 };
 
 export default NavBar;
+
+
+
+

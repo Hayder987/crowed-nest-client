@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router";
 import background from "../assets/background-1.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
-import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Register = () => {
      const {registerUser, updateUser} = useContext(AuthContext)
@@ -19,6 +19,7 @@ const Register = () => {
         const imgPath = form.imgPath.value;
         const password = form.password.value;
         setErrMessage("")
+
       if(password.length<6){
         setErrMessage('Password must have 6 digits')
         return
@@ -34,11 +35,17 @@ const Register = () => {
       }
 
         registerUser(email, password)
-        .then((x)=>{
+        .then(()=>{
           updateUser(name, imgPath)
           navigate('/')
-          toast.success('User Registration successFully!')
-          console.log(x)
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User Registration SuccessFully!",
+            showConfirmButton: false,
+            timer: 2000
+          });
+          
         })
         .catch(err=>{
           setErrMessage(err.message)
@@ -108,7 +115,7 @@ const Register = () => {
             />
           </div>
           <div className="flex justify-center items-center bg-[#ff5103] rounded-full text-white py-3 px-6">
-            <input type="submit" value="Register Now" />
+            <input type="submit" value="Register Now" className="w-full"/>
           </div>
           <div className="">
             <p className="text-white text-center">Have an Account? <Link to='/login'><span className="text-blue-500 underline"> Login Now</span></Link></p>

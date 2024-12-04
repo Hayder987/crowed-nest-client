@@ -1,13 +1,55 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import background from "../assets/background-1.jpg";
 import { FcGoogle } from "react-icons/fc";
+import { useContext, useState } from "react";
+import { AuthContext } from "../Context/AuthProvider";
+import Swal from "sweetalert2";
 
 const LoginPage = () => {
+  const {loginUser} = useContext(AuthContext)
+  const [errMessage, setErrMessage] = useState(null)
+  const upperCase = /^(?=.*[A-Z]).+$/;
+  const lowerCase = /^(?=.*[a-z]).+$/;
+  const navigate = useNavigate()
+  
+
   const loginHandler = e =>{
     e.preventDefault()
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    setErrMessage("")
+
+    if(password.length<6){
+      setErrMessage('Password must have 6 digits')
+      return
+    }
+    if(!upperCase.test(password)){
+      setErrMessage('Password must be 1 UpperCase')
+      return
+    }
+
+    if(!lowerCase.test(password)){
+      setErrMessage('Password must be 1 LowerCase')
+      return
+    }
+
+    loginUser(email, password)
+    .then(()=>{
+      navigate('/')
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "User Login SuccessFully!",
+        showConfirmButton: false,
+        timer: 2000
+      });   
+    })
+    .catch(err=>{
+      setErrMessage(err.message.split('/')[1])
+      console.log(err.message)
+    })
+
   }
     return (
         <div
@@ -21,34 +63,34 @@ const LoginPage = () => {
     >
       <div className="min-w-[100%] lg:min-w-[600px] rounded-xl bg-opacity-40 hover:bg-opacity-60 bg-[#010716] py-12 md:py-20 px-16 mx-auto mb-16">
         <h1 className="text-4xl font-bold text-center mb-6 text-white">Login</h1>
-        <p className="text-center text-red-600 mb-4">fdshfdkjhfjd</p>
+        <p className="text-center text-red-400 mb-4">{errMessage}</p>
         <form onSubmit={loginHandler} className="flex flex-col gap-10">
           
           <div className="">
-            <label className="label">
+            <label className="">
               <span className="text-white">Email</span>
             </label>
             <input
               type="email"
-              name="Email"
+              name="email"
               id=""
-              className="border-b-2 border-white bg-transparent w-full outline-none text-white"
+              className="border-b-2 p-2 border-white bg-transparent w-full outline-none text-white"
             />
           </div>
           
           <div className="">
-            <label className="label">
+            <label className="">
               <span className="text-white">Password</span>
             </label>
             <input
               type="password"
               name="password"
               id=""
-              className="border-b-2 border-white bg-transparent w-full outline-none text-white"
+              className="border-b-2 p-2 border-white bg-transparent w-full outline-none text-white"
             />
           </div>
           <div className="flex justify-center items-center bg-[#ff5103] rounded-full text-white py-3 px-6">
-            <input type="submit" value="Register Now" />
+            <input type="submit" value="Login Now" className="w-full"/>
           </div>
           
         </form>
