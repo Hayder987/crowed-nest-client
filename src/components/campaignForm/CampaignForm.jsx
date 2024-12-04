@@ -4,6 +4,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../Context/AuthProvider";
+import Swal from "sweetalert2";
 
 const CampaignForm = () => {
   const { theme } = useContext(UtilitiContext);
@@ -14,14 +15,39 @@ const CampaignForm = () => {
   const formatDate = (date) => {
     return date ? date.toISOString().split("T")[0] : "";
   };
-  const date = formatDate(startDate);
+  const deadline = formatDate(startDate);
 
-  console.log(date);
+ 
 
 const addPostHandler = e =>{
     e.preventDefault()
     const form = e.target;
-    
+    const imgPath = form.imgPath.value;
+    const title = form.title.value;
+    const campaignType = form.campaignType.value;
+    const description = form.description.value;
+    const textAmount = form.amount.value;
+    const useremail = form.useremail.value;
+    const username = form.username.value;
+    const amount = parseInt(textAmount)
+   
+    const info = {username, useremail, imgPath, title, campaignType, description, amount, deadline}
+    fetch('http://localhost:4000/campaigns',{
+        method:'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(info)
+    })
+    .then(res=> res.json())
+    .then(()=>{
+        Swal.fire({
+            position: "top-middle",
+            icon: "success",
+            title: "Post SuccessFully added Server",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          form.reset()
+    })
 }
 
   return (
@@ -71,7 +97,7 @@ const addPostHandler = e =>{
               </span>
             </label>
             <select
-              name="CampaignType"
+              name="campaignType"
               className="select select-bordered w-full text-black"
             >
               <option disabled selected>
@@ -115,7 +141,7 @@ const addPostHandler = e =>{
           <div className="form-control w-full">
             <label className="label">
               <span className={`${theme ? "label-text" : "text-white"}`}>
-                Deadline
+               Set Deadline
               </span>
             </label>
 
