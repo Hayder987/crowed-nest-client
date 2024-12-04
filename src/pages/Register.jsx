@@ -3,6 +3,7 @@ import background from "../assets/background-1.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
      const {registerUser, updateUser} = useContext(AuthContext)
@@ -10,6 +11,7 @@ const Register = () => {
      const upperCase = /^(?=.*[A-Z]).+$/;
      const lowerCase = /^(?=.*[a-z]).+$/;
      const navigate = useNavigate()
+     const [eye, setEye] = useState(true)
   
 
     const registerHandler = e =>{
@@ -63,7 +65,7 @@ const Register = () => {
       }}
       className="min-h-[70vh] lg:min-h-[90vh] p-4 md:p-8 lg:p-20 flex justify-center items-center"
     >
-      <div className="min-w-[100%] lg:min-w-[600px] rounded-xl bg-opacity-40 hover:bg-opacity-60 bg-[#010716] py-12 px-16 mx-auto mb-16">
+      <div className="min-w-[100%] relative lg:min-w-[600px] rounded-xl bg-opacity-40 hover:bg-opacity-60 bg-[#010716] py-12 px-16 mx-auto mb-16">
         <h1 className="text-4xl font-bold text-center mb-6 text-white">Register</h1>
         <p className="text-center text-red-400">{errMessage}</p>
         <form onSubmit={registerHandler} className="flex flex-col gap-10">
@@ -108,7 +110,7 @@ const Register = () => {
               <span className="text-white">Password</span>
             </label>
             <input
-              type="password"
+              type={`${eye?'password':'text'}`}
               name="password"
               id=""
               required
@@ -123,6 +125,12 @@ const Register = () => {
           </div>
           
         </form>
+        <p onClick={()=> setEye(!eye)} className="absolute top-[450px] lg:top-[455px] right-20">
+          {
+            eye?<span className="text-white text-xl"><FaEye /></span>:
+            <span className="text-white text-xl"><FaEyeSlash /></span>
+          }
+        </p>
       </div>
     </div>
   );
