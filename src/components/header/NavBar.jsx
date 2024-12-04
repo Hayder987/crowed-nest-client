@@ -10,7 +10,7 @@ const NavBar = () => {
   const {user ,loading, userLogout} = useContext(AuthContext)
   const navigate  = useNavigate();
   const [hover, setHover] = useState(false)
-  console.log(hover);
+
 
   const LogoutHandler = ()=>{
     userLogout()
@@ -103,7 +103,7 @@ const NavBar = () => {
           <div className="w-full">
             <h1 className="text-center text-2xl font-semibold">Welcome!</h1>
             <div className="flex justify-center items-center my-6">
-              <img src={user?.photoURL} alt="" className="w-24 h-24" />
+              <img src={user?.photoURL} alt="" className="w-28 h-28" />
             </div>
             <h1 className="text-center text-2xl font-semibold">{user?.displayName}</h1>
             <div className="flex justify-center my-4">

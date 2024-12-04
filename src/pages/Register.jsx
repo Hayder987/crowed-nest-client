@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import background from "../assets/background-1.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
@@ -10,6 +10,7 @@ const Register = () => {
      const upperCase = /^(?=.*[A-Z]).+$/;
      const lowerCase = /^(?=.*[a-z]).+$/;
      const navigate = useNavigate()
+  
 
     const registerHandler = e =>{
         e.preventDefault()

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import background from "../assets/background-1.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
@@ -11,7 +11,7 @@ const LoginPage = () => {
   const upperCase = /^(?=.*[A-Z]).+$/;
   const lowerCase = /^(?=.*[a-z]).+$/;
   const navigate = useNavigate()
-  
+  const {state} = useLocation()
 
   const loginHandler = e =>{
     e.preventDefault()
@@ -36,7 +36,7 @@ const LoginPage = () => {
 
     loginUser(email, password)
     .then(()=>{
-      navigate('/')
+     state? navigate(state): navigate('/')
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -46,8 +46,11 @@ const LoginPage = () => {
       });   
     })
     .catch(err=>{
-      setErrMessage(err.message.split('/')[1])
-      console.log(err.message)
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${err.message} Password Or Email did't Match`,
+      });  
     })
 
   }
