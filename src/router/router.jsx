@@ -9,6 +9,7 @@ import MyDonations from "../pages/MyDonations";
 import LoginPage from "../pages/LoginPage";
 import Register from "../pages/Register";
 import PrivateRoute from "../private/PrivateRoute";
+import DetailsPage from "../pages/DetailsPage";
 
 
 export const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path:'/mydonation',
                 element:<PrivateRoute><MyDonations></MyDonations></PrivateRoute>
+            },
+            {
+                path:'/details/:id',
+                element:<PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
             },
             {
                 path:'/login',

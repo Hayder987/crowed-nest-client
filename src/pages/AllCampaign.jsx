@@ -2,18 +2,21 @@ import { useContext, useEffect, useState } from "react";
 import { UtilitiContext } from "../Context/UtilitiesProvider";
 import { TbListDetails } from "react-icons/tb";
 import { MdOutlineUpdateDisabled } from "react-icons/md";
+import { useNavigate } from "react-router";
+
+
 
 const AllCampaign = () => {
   const { theme } = useContext(UtilitiContext);
   const [allData, setAllData] = useState([]);
   const date = new Date();
+  const navigate= useNavigate()
 
   const formatDate = (currentDate) => {
     return currentDate.toISOString().split("T")[0];
   };
 
   const newDate = formatDate(date);
-  console.log(newDate)
 
   useEffect(() => {
     fetch("http://localhost:4000/campaigns", {})
@@ -22,7 +25,8 @@ const AllCampaign = () => {
         setAllData(data);
       });
   }, []);
-  console.log(allData);
+  
+
 
   return (
     <div
@@ -57,8 +61,16 @@ const AllCampaign = () => {
                   <td>{item?.username}</td>
                   <td>{item?.campaignType}</td>
                   <th>{item?.amount}</th>
-                  <td className={`${newDate>item?.deadline?'text-red-600':`${theme?"text-black":'text-white'}`} flex justify-center items-center gap-2`}>{item?.deadline} {newDate>item?.deadline?<MdOutlineUpdateDisabled />:''}</td>
-                  <td><button className="text-xl text-green-600"><TbListDetails /></button></td>
+                  <td className={`${newDate>item?.deadline?'text-red-600':`${theme?"text-black":'text-white'}`} flex justify-start items-center gap-2`}>{item?.deadline} {newDate>item?.deadline?<MdOutlineUpdateDisabled />:''}</td>
+                  <td><button
+                     data-tooltip-id="my-tooltip"
+                     data-tooltip-content="See Details!"
+                     data-tooltip-place="top"
+                   onClick={()=> navigate(`/details/${item?._id}`)} className="  flex justify-center items-center gap-3 border p-2">
+                    <span className="text-xl text-green-600"><TbListDetails /></span>
+                    <span className="">See more</span>
+                    
+                  </button></td>
                 </tr>
               ))}
             </tbody>

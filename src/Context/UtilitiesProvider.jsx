@@ -6,6 +6,8 @@ export const UtilitiContext = createContext(null)
 const UtilitiesProvider = ({children}) => {
     const [theme, setTheme] = useState(true);
 
+    
+
     const utilitiesInfo ={
         theme, 
         setTheme,

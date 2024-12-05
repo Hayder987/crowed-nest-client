@@ -11,11 +11,16 @@ const CampaignForm = () => {
   const {user} = useContext(AuthContext)
 
   const [startDate, setStartDate] = useState(new Date());
+  const currentDate = new Date();
+
 
   const formatDate = (date) => {
     return date ? date.toISOString().split("T")[0] : "";
   };
+
   const deadline = formatDate(startDate);
+  const published = formatDate(currentDate);
+
 
  
 
@@ -29,9 +34,17 @@ const addPostHandler = e =>{
     const textAmount = form.amount.value;
     const useremail = form.useremail.value;
     const username = form.username.value;
+    if(isNaN(Number(textAmount))){
+      Swal.fire({
+        title: "Donation Amount Field",
+        text: "Please Enter Number Value?",
+        icon: "error"
+      });
+      return
+    }
     const amount = parseInt(textAmount)
    
-    const info = {username, useremail, imgPath, title, campaignType, description, amount, deadline}
+    const info = {username, useremail, imgPath, title, campaignType, description, amount, deadline, published}
     fetch('http://localhost:4000/campaigns',{
         method:'POST',
         headers: {'content-type': 'application/json'},
@@ -185,7 +198,7 @@ const addPostHandler = e =>{
           </div>
         </div>
         <div className="flex justify-center items-center py-10">
-            <input type="submit" value="Add Campaign" className="bg-[#ff5103] py-3 px-6 w-full rounded-full font-bold text-white"/>
+            <input type="submit" value="Add Campaign" className="bg-[#ff5103] cursor-pointer py-3 px-6 w-full rounded-full font-bold text-white"/>
         </div>
       </form>
     </div>
