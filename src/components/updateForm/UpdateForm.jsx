@@ -6,10 +6,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../Context/AuthProvider";
 import Swal from "sweetalert2";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router";
 
 const UpdateForm = ({campaign}) => {
   const { theme } = useContext(UtilitiContext);
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const [startDate, setStartDate] = useState(new Date());
 
@@ -20,7 +22,7 @@ const UpdateForm = ({campaign}) => {
 
   const deadline = formatDate(startDate);
 
-  const addPostHandler = (e) => {
+  const updatePostHandler = (e) => {
     e.preventDefault();
     const form = e.target;
     const imgPath = form.imgPath.value;
@@ -28,8 +30,7 @@ const UpdateForm = ({campaign}) => {
     const campaignType = form.campaignType.value;
     const description = form.description.value;
     const textAmount = form.amount.value;
-    const useremail = form.useremail.value;
-    const username = form.username.value;
+   
     if (isNaN(Number(textAmount))) {
       Swal.fire({
         title: "Donation Amount Field",
@@ -41,8 +42,6 @@ const UpdateForm = ({campaign}) => {
     const amount = parseInt(textAmount);
 
     const info = {
-      username,
-      useremail,
       imgPath,
       title,
       campaignType,
@@ -50,7 +49,7 @@ const UpdateForm = ({campaign}) => {
       amount,
       deadline,
     };
-    fetch("http://localhost:4000/campaigns", {
+    fetch(`http://localhost:4000/campaign/${campaign?._id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(info),
@@ -60,11 +59,12 @@ const UpdateForm = ({campaign}) => {
         Swal.fire({
           position: "top-middle",
           icon: "success",
-          title: "Post SuccessFully added Server",
+          title: "Campaign Update SuccessFully ",
           showConfirmButton: false,
           timer: 1500,
         });
         form.reset();
+        navigate('/mycampaign')
       });
   };
 
@@ -73,7 +73,7 @@ const UpdateForm = ({campaign}) => {
     theme ? "bg-white" : "bg-slate-200 bg-opacity-20"
   } mx-auto rounded-xl mb-10`}
 >
-  <form onSubmit={addPostHandler} className="flex flex-col gap-6">
+  <form onSubmit={updatePostHandler} className="flex flex-col gap-6">
     {/* image url */}
     <div className="">
       <div className="form-control">
