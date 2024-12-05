@@ -5,6 +5,7 @@ import { CirclesWithBar } from "react-loader-spinner";
 import { AuthContext } from "../Context/AuthProvider";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Swal from "sweetalert2";
 
 const MyCampaign = () => {
   const { theme } = useContext(UtilitiContext);
@@ -27,6 +28,39 @@ const MyCampaign = () => {
         setLoading(false);
       });
   }, [user]);
+
+
+  const deleteHandler = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:4000/campaigns/${id}`,{
+          method:"DELETE"
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if(result.deletedCount>0){
+              const remaing = allData.filter((item) => item._id !== id);
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+                timer: 1500
+              });
+              setAllData(remaing);
+            } 
+          });
+        
+      }
+    });
+  };
 
   return (
     <div
@@ -66,11 +100,7 @@ const MyCampaign = () => {
                 <span className="">You Have No Campaign </span>
               </h1>
               <p className="max-w-[650px] mx-auto">
-                <DotLottieReact 
-                src="/public/nodata.json" 
-                loop 
-                autoplay 
-                />
+                <DotLottieReact src="/public/nodata.json" loop autoplay />
               </p>
             </div>
           ) : (
@@ -109,31 +139,38 @@ const MyCampaign = () => {
                       <th>{item?.amount}</th>
                       <td>{item?.published}</td>
                       <td
-                      className={`${
-                        newDate > item?.deadline
-                          ? "text-red-600"
-                          : `${theme ? "text-black" : "text-white"}`
-                      } flex justify-start items-center gap-2`}
-                      >{newDate>item?.deadline?<p>Expired</p>
-                        :
-                      <span className="">{item?.deadline}</span>}</td>
+                        className={`${
+                          newDate > item?.deadline
+                            ? "text-red-600"
+                            : `${theme ? "text-black" : "text-white"}`
+                        } flex justify-start items-center gap-2`}
+                      >
+                        {newDate > item?.deadline ? (
+                          <p>Expired</p>
+                        ) : (
+                          <span className="">{item?.deadline}</span>
+                        )}
+                      </td>
                       <td>
                         <div className="flex justify-start gap-3">
-                        <button
-                        onClick={()=>navigate(`/update/${item._id}`)}
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content="Update"
-                        data-tooltip-place="top"
-                         className="bg-green-600 text-xl text-white p-2 rounded-lg">
-                          <MdEdit />
-                        </button>
-                        <button
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content="Delete"
-                        data-tooltip-place="top"
-                         className="bg-red-600 text-xl text-white p-2 rounded-lg">
-                          <MdDelete />
-                        </button>
+                          <button
+                            onClick={() => navigate(`/update/${item?._id}`)}
+                            data-tooltip-id="my-tooltip"
+                            data-tooltip-content="Edit"
+                            data-tooltip-place="top"
+                            className="bg-green-600 text-xl text-white p-2 rounded-lg"
+                          >
+                            <MdEdit />
+                          </button>
+                          <button
+                            onClick={() => deleteHandler(item?._id)}
+                            data-tooltip-id="my-tooltip"
+                            data-tooltip-content="Delete"
+                            data-tooltip-place="top"
+                            className="bg-red-600 text-xl text-white p-2 rounded-lg"
+                          >
+                            <MdDelete />
+                          </button>
                         </div>
                       </td>
                     </tr>
