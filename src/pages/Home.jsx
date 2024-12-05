@@ -10,8 +10,11 @@ const Home = () => {
      useEffect(()=>{
       fetch('http://localhost:4000/recent')
       .then(res=> res.json())
-      .then(data=> setAllData(data))
-      setLoading(false)
+      .then(data=> {
+        setAllData(data)
+        setLoading(false)
+      })
+      
      },[])
 
     return (

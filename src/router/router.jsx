@@ -10,6 +10,7 @@ import LoginPage from "../pages/LoginPage";
 import Register from "../pages/Register";
 import PrivateRoute from "../private/PrivateRoute";
 import DetailsPage from "../pages/DetailsPage";
+import UpdatePage from "../pages/UpdatePage";
 
 
 export const router = createBrowserRouter([
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
             {
                 path:'/details/:id',
                 element:<PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
+            },
+            {
+             path:'/update/:id',
+             element:<UpdatePage></UpdatePage>
             },
             {
                 path:'/login',

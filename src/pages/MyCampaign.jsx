@@ -3,7 +3,7 @@ import { UtilitiContext } from "../Context/UtilitiesProvider";
 import { useNavigate } from "react-router";
 import { CirclesWithBar } from "react-loader-spinner";
 import { AuthContext } from "../Context/AuthProvider";
-import { MdEdit } from "react-icons/md";
+import { MdDelete, MdEdit } from "react-icons/md";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const MyCampaign = () => {
@@ -118,9 +118,23 @@ const MyCampaign = () => {
                         :
                       <span className="">{item?.deadline}</span>}</td>
                       <td>
-                        <button className="">
+                        <div className="flex justify-start gap-3">
+                        <button
+                        onClick={()=>navigate(`/update/${item._id}`)}
+                        data-tooltip-id="my-tooltip"
+                        data-tooltip-content="Update"
+                        data-tooltip-place="top"
+                         className="bg-green-600 text-xl text-white p-2 rounded-lg">
                           <MdEdit />
                         </button>
+                        <button
+                        data-tooltip-id="my-tooltip"
+                        data-tooltip-content="Delete"
+                        data-tooltip-place="top"
+                         className="bg-red-600 text-xl text-white p-2 rounded-lg">
+                          <MdDelete />
+                        </button>
+                        </div>
                       </td>
                     </tr>
                   ))}

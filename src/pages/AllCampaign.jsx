@@ -59,8 +59,18 @@ const AllCampaign = () => {
           Table Layout Of All Campaign
         </h1>
         <div className="overflow-x-auto w-full ">
-          <div className="flex justify-end mb-3">
-            <button onClick={()=> setSort(true)} className="bg-[#ff5103] py-3 px-6 text-white font-medium">Sorted by Amount</button>
+          <div className="flex justify-between mb-3">
+            <h3 className="font-medium">
+              <span className="">Toatal Campaign: </span>
+              {allData.length}
+            </h3>
+            <button 
+               data-tooltip-id="my-tooltip"
+               data-tooltip-content="Sorted Amount High To Low!"
+               data-tooltip-place="bottom"
+               onClick={()=> setSort(true)} className="bg-[#ff5103] py-3 px-6 text-white font-medium">
+               Sorted by Amount
+            </button>
           </div>
           <table className="table">
             {/* head */}
