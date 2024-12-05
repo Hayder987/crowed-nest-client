@@ -20,7 +20,7 @@ const AllCampaign = () => {
   const newDate = formatDate(date);
 
   useEffect(() => {
-    fetch("http://localhost:4000/campaigns", {})
+    fetch("http://localhost:4000/campaigns")
       .then((res) => res.json())
       .then((data) => {
         sort?setAllData([...allData].sort((a, b)=> b?.amount - a?.amount)):
@@ -72,14 +72,14 @@ const AllCampaign = () => {
               >
                 <th>SL</th>
                 <th>User</th>
-                <th>campaignType</th>
+                <th>campaign Name</th>
                 <th>Amount</th>
                 <th>Deadline</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {/* row 1 */}
+              {/* row  */}
               {allData.map((item, index) => (
                 <tr
                   key={item?._id}
@@ -87,7 +87,7 @@ const AllCampaign = () => {
                 >
                   <th>{index + 1}</th>
                   <td>{item?.username}</td>
-                  <td>{item?.campaignType}</td>
+                  <td>{item?.title}</td>
                   <th>{item?.amount}</th>
                   <td
                     className={`${
