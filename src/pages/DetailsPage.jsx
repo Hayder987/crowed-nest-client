@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { CirclesWithBar } from "react-loader-spinner";
 import { useParams } from "react-router";
 import { UtilitiContext } from "../Context/UtilitiesProvider";
+import { AuthContext } from "../Context/AuthProvider";
+import Swal from "sweetalert2";
 
 const DetailsPage = () => {
   const [loading, setLoading] = useState(true);
@@ -14,6 +16,9 @@ const DetailsPage = () => {
     return currentDate.toISOString().split("T")[0];
   };
   const newDate = formatDate(date);
+  const donateDate = formatDate(date);
+  const {user} = useContext(AuthContext)
+
 
   useEffect(() => {
     fetch(`http://localhost:4000/campaign/${id}`)
@@ -38,6 +43,55 @@ const DetailsPage = () => {
 
   const donateHandler = e =>{
     e.preventDefault();
+    if(deadline<newDate){
+      Swal.fire({
+        icon: "info",
+        title: "Time Over",
+        text: "You Can't Donate This Campaign!",
+      });
+        return
+    }
+    const textAmount = e.target.amount.value;
+    if(isNaN(Number(textAmount))){
+      Swal.fire({
+        icon: "error",
+        title: "Amount",
+        text: "Please Enter Number Value!",
+      });
+        return
+    }
+
+    const donateAmount = parseInt(textAmount)
+    const name = user?. displayName;
+    const email = user?.email;
+
+   
+
+    const donateInfo = {
+        name,
+        email,
+        title,
+        campaignType,
+        donateAmount,
+        donateDate,
+        deadline
+    }
+
+    fetch(`http://localhost:4000/donation`,{
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(donateInfo)
+    })
+    .then(res=> res.json())
+    .then(()=>{
+      Swal.fire({
+        icon: "success",
+        title: "Congratulations!",
+        text: "Your Donation Bring New Hope!",
+      });
+      e.target.reset()
+    })
+
   }
 
   return (

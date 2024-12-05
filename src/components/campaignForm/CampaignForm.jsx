@@ -112,14 +112,14 @@ const addPostHandler = e =>{
             <select
               name="campaignType"
               className="select select-bordered w-full text-black"
+              required
             >
-              <option disabled selected>
-                Select Campaign type
-              </option>
-              <option value={"personal issue"}>personal issue</option>
-              <option value={"startup"}>startup</option>
-              <option value={"business"}>business</option>
-              <option value={"creative ideas"}>creative ideas</option>
+              <option value={"personal issue"}>Personal issue</option>
+              <option value={"startup"}>Startup</option>
+              <option value={"business"}>Business</option>
+              <option value={"creative ideas"}>Creative Ideas</option>
+              <option value={"medical and health"}>Medical and Health</option>
+              <option value={"community development"}>Community Development</option>
             </select>
           </div>
         </div>
@@ -133,6 +133,7 @@ const addPostHandler = e =>{
             name="description"
             className="textarea text-black textarea-bordered resize-none"
             placeholder="Description"
+            required
           ></textarea>
         </div>
         {/* ammount And Deadline */}

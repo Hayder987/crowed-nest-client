@@ -6,7 +6,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
   return (
-    <div className="mb-20 ">
+    <div className="mb-16 md:mb-28 ">
       <Swiper
         navigation={false}
         modules={[Navigation, Autoplay]}
