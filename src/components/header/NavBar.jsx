@@ -4,12 +4,15 @@ import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthProvider";
 import { MdLogout } from "react-icons/md";
 import Swal from "sweetalert2";
+import { AiOutlineMenuUnfold } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx";
 
 const NavBar = () => {
   const { theme, setTheme } = useContext(UtilitiContext);
   const {user ,loading, userLogout} = useContext(AuthContext)
   const navigate  = useNavigate();
   const [hover, setHover] = useState(false)
+  const [menu, setMenu] = useState(false)
 
 
   const LogoutHandler = ()=>{
@@ -35,6 +38,25 @@ const NavBar = () => {
             Crowd Nest
           </h1>
         </div>
+        <div onClick={()=> setMenu(!menu)} className="text-3xl ">
+         <div className="flex lg:hidden">
+         {
+            menu?<RxCross2 />:<AiOutlineMenuUnfold />
+          }
+         </div>
+        </div>
+        <div className={`bg-[#140701] ${menu?"flex":'hidden'} absolute top-24 left-0 z-10  p-6 md:hidden w-full`}>
+          <ul onClick={()=> setMenu(!menu)} className="flex flex-col gap-4 text-white text-xl">
+            <NavLink to='/'><li className="">Home</li></NavLink>
+            <NavLink to='/allcampaign'><li className="">All Campaign</li></NavLink>
+            <NavLink to="/newcampaign"><li className="">Add New Campaign</li></NavLink>
+            <NavLink to='/mycampaign'><li className="">My Campaign</li></NavLink>
+            <NavLink to='/mydonation'><li className="">My Donations</li></NavLink>
+          </ul>
+          
+        </div>
+
+
         <div className="">
           <ul className="hidden lg:flex justify-center items-center gap-8 cursor-pointer">
             <NavLink to='/'><li className="">Home</li></NavLink>
@@ -45,6 +67,7 @@ const NavBar = () => {
           </ul>
           
         </div>
+
         
         <div className="flex gap-4 justify-center items-center">
           {

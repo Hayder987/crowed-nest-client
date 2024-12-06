@@ -12,7 +12,7 @@ const Card = ({item}) => {
 
 
     return (
-        <div className={`${theme?'bg-white':"bg-gray-700 bg-opacity-50"} p-4 rounded-xl  shadow-lg`}>
+        <div className={`hover:scale-105 duration-500 ${theme?'bg-white':"bg-gray-700 bg-opacity-50"} p-4 rounded-xl  shadow-lg`}>
          <div className="mb-4">
             <img src={imgPath} alt="" className="rounded-l-lg w-full h-[310px] rounded-lg object-cover" />
          </div> 
