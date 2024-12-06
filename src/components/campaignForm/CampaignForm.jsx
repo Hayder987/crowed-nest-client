@@ -45,7 +45,7 @@ const addPostHandler = e =>{
     const amount = parseInt(textAmount)
    
     const info = {username, useremail, imgPath, title, campaignType, description, amount, deadline, published}
-    fetch('http://localhost:4000/campaigns',{
+    fetch('https://crowd-nest-server-eight.vercel.app/campaigns',{
         method:'POST',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(info)

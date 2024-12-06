@@ -8,7 +8,7 @@ const Home = () => {
      const [loading, setLoading] = useState(true)
 
      useEffect(()=>{
-      fetch('http://localhost:4000/recent')
+      fetch('https://crowd-nest-server-eight.vercel.app/recent')
       .then(res=> res.json())
       .then(data=> {
         setAllData(data)
@@ -23,7 +23,8 @@ const Home = () => {
          <CampaignCard 
          allData={allData}
          loading={loading}
-         ></CampaignCard>  
+         ></CampaignCard> 
+          
         </div>
     );
 };

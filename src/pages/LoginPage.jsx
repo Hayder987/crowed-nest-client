@@ -59,8 +59,7 @@ const LoginPage = () => {
 
   const googleLogin=()=>{
     googleUserLogin()
-    .then((result)=>{
-      console.log(result)
+    .then(()=>{
       state? navigate(state): navigate('/')
       Swal.fire({
         position: "top-end",

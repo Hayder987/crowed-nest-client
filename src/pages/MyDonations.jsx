@@ -13,7 +13,7 @@ const MyDonations = () => {
  
 
   useEffect(() => {
-    fetch(`http://localhost:4000/donation/${user?.email}`)
+    fetch(`https://crowd-nest-server-eight.vercel.app/donation/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setAllData(data);
@@ -32,7 +32,7 @@ const MyDonations = () => {
         confirmButtonText: "Yes, delete it!"
       }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:4000/donation/${user?.email}`,{
+            fetch(`https://crowd-nest-server-eight.vercel.app/donation/${user?.email}`,{
                 method: 'DELETE'
             })
             .then((res) => res.json())
