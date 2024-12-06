@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Banner from "../components/Banner/Banner";
 import CampaignCard from "../components/homeComponets/CampaignCard";
+import GalleryPhoto from "../components/homeComponets/Gallery";
 
 
 const Home = () => {
@@ -24,7 +25,7 @@ const Home = () => {
          allData={allData}
          loading={loading}
          ></CampaignCard> 
-          
+         <GalleryPhoto></GalleryPhoto>
         </div>
     );
 };
