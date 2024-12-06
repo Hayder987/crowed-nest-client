@@ -4,6 +4,7 @@ import CampaignCard from "../components/homeComponets/CampaignCard";
 import GalleryPhoto from "../components/homeComponets/Gallery";
 import About from "../components/homeComponets/About";
 import SatatusBar from "../components/homeComponets/SatatusBar";
+import { Fade, Slide } from "react-awesome-reveal";
 
 
 const Home = () => {
@@ -22,14 +23,18 @@ const Home = () => {
 
     return (
         <div>
-         <Banner></Banner> 
+         <Fade>
+          <Banner></Banner>
+          </Fade> 
          <CampaignCard 
            allData={allData}
            loading={loading}
          ></CampaignCard> 
          <GalleryPhoto></GalleryPhoto>
          <About></About>
+         <Slide direction="up">
          <SatatusBar></SatatusBar>
+         </Slide>
         </div>
     );
 };

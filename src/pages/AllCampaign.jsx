@@ -4,6 +4,7 @@ import { TbListDetails } from "react-icons/tb";
 import { MdOutlineUpdateDisabled } from "react-icons/md";
 import { useNavigate } from "react-router";
 import { CirclesWithBar } from "react-loader-spinner";
+import { Zoom } from "react-awesome-reveal";
 
 const AllCampaign = () => {
   const { theme } = useContext(UtilitiContext);
@@ -72,6 +73,7 @@ const AllCampaign = () => {
                Sorted by Amount
             </button>
           </div>
+          <Zoom>
           <table className="table">
             {/* head */}
             <thead>
@@ -131,10 +133,11 @@ const AllCampaign = () => {
               ))}
             </tbody>
           </table>
+          </Zoom>
         </div>
       </div>
       }
-    </div>
+     </div>
   );
 };
 

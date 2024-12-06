@@ -6,6 +6,7 @@ import { AuthContext } from "../Context/AuthProvider";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Swal from "sweetalert2";
+import { Slide } from "react-awesome-reveal";
 
 const MyCampaign = () => {
   const { theme } = useContext(UtilitiContext);
@@ -105,6 +106,7 @@ const MyCampaign = () => {
             </div>
           ) : (
             <div className="overflow-x-auto w-full ">
+              <Slide direction="up">
               <table className="table">
                 {/* head */}
                 <thead>
@@ -177,6 +179,7 @@ const MyCampaign = () => {
                   ))}
                 </tbody>
               </table>
+              </Slide>
             </div>
           )}
         </div>

@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import banner from "../assets/addBanner.jpg";
+import banner from "../assets/whiteBanner.jpg";
 import { UtilitiContext } from "../Context/UtilitiesProvider";
 import { useParams } from "react-router";
 import UpdateForm from "../components/updateForm/UpdateForm";
 import { CirclesWithBar } from "react-loader-spinner";
+import { Zoom } from "react-awesome-reveal";
 
 const UpdatePage = () => {
   const { theme } = useContext(UtilitiContext);
@@ -52,14 +53,14 @@ const UpdatePage = () => {
               <h1 className=" text-3xl font-semibold mb-10">
                 Update {campaign?.title} Campaign
               </h1>
-              <UpdateForm campaign={campaign}></UpdateForm>
+              <Zoom><UpdateForm campaign={campaign}></UpdateForm></Zoom>
             </div>
           ) : (
             <div className="bg-gray-900 min-h-[90vh] flex flex-col justify-center items-center p-4 py-14 md:p-12">
               <h1 className=" text-3xl font-semibold mb-10">
                 Update {campaign?.title} Campaign
               </h1>
-              <UpdateForm campaign={campaign}></UpdateForm>
+              <Zoom><UpdateForm campaign={campaign}></UpdateForm></Zoom>
             </div>
           )}
         </div>

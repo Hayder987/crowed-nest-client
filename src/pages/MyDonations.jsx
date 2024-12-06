@@ -4,6 +4,7 @@ import { CirclesWithBar } from "react-loader-spinner";
 import { AuthContext } from "../Context/AuthProvider";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Swal from "sweetalert2";
+import { Slide } from "react-awesome-reveal";
 
 const MyDonations = () => {
   const { theme } = useContext(UtilitiContext);
@@ -92,6 +93,7 @@ const MyDonations = () => {
             </div>
           ) : (
             <div className="overflow-x-auto w-full ">
+              <Slide direction="up">
               <table className="table">
                 {/* head */}
                 <thead>
@@ -130,7 +132,8 @@ const MyDonations = () => {
                   ))}
                 </tbody>
               </table>
-              <div className="flex justify-center item-center mt-4">
+              </Slide>
+              <div className="flex justify-center item-center mt-10">
                 <button onClick={clearDonationHandler} className="bg-[#ff5103] py-3 px-4 font-semibold rounded-xl text-white">Clear History</button>
               </div>
             </div>

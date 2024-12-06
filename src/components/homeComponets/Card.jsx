@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useContext } from "react";
 import { UtilitiContext } from "../../Context/UtilitiesProvider";
 import { useNavigate } from "react-router";
+import { Zoom } from "react-awesome-reveal";
 
 
 const Card = ({item}) => {
@@ -12,7 +13,8 @@ const Card = ({item}) => {
 
 
     return (
-        <div className={`hover:scale-105 duration-500 ${theme?'bg-white':"bg-gray-700 bg-opacity-50"} p-4 rounded-xl  shadow-lg`}>
+        <Zoom >
+          <div className={`hover:scale-105 duration-500 ${theme?'bg-white':"bg-gray-700 bg-opacity-50"} p-4 rounded-xl  shadow-lg`}>
          <div className="mb-4">
             <img src={imgPath} alt="" className="rounded-l-lg w-full h-[310px] rounded-lg object-cover" />
          </div> 
@@ -33,7 +35,8 @@ const Card = ({item}) => {
              <button onClick={()=> navigate(`/details/${_id}`)} className="bg-[#ff5103]  text-white py-2 px-4 rounded-full w-full font-semibold">SeeMore</button>
             </div>
          </div>
-        </div>
+          </div>
+        </Zoom>
     );
 };
 

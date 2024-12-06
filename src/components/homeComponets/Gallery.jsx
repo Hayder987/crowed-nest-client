@@ -1,3 +1,4 @@
+import { Slide } from "react-awesome-reveal";
 import { Gallery } from "react-grid-gallery";
 
 const GalleryPhoto = () => {
@@ -57,9 +58,11 @@ const GalleryPhoto = () => {
             and collaboration. Every image is a reminder of what we can achieve when 
             we come together for a cause.
           </p>
+          <Slide direction="down">
           <div className="p-2">
           <Gallery images={photos} />
           </div>
+          </Slide>
 
         </div>
     );
