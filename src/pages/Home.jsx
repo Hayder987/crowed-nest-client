@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Banner from "../components/Banner/Banner";
 import CampaignCard from "../components/homeComponets/CampaignCard";
 import GalleryPhoto from "../components/homeComponets/Gallery";
+import About from "../components/homeComponets/About";
+import SatatusBar from "../components/homeComponets/SatatusBar";
 
 
 const Home = () => {
@@ -22,10 +24,12 @@ const Home = () => {
         <div>
          <Banner></Banner> 
          <CampaignCard 
-         allData={allData}
-         loading={loading}
+           allData={allData}
+           loading={loading}
          ></CampaignCard> 
          <GalleryPhoto></GalleryPhoto>
+         <About></About>
+         <SatatusBar></SatatusBar>
         </div>
     );
 };
