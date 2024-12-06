@@ -100,7 +100,7 @@ const MyCampaign = () => {
                 <span className="">You Have No Campaign </span>
               </h1>
               <p className="max-w-[650px] mx-auto">
-                <DotLottieReact src="/public/nodata.json" loop autoplay />
+                <DotLottieReact src="/nodata.json" loop autoplay />
               </p>
             </div>
           ) : (

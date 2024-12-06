@@ -30,7 +30,7 @@ const NavBar = () => {
     <div>
       <nav className="flex relative justify-between items-center px-2 py-4 md:w-11/12 mx-auto">
         <div className="flex justify-center items-center gap-2">
-          <img src="/public/fav-logo.jpg" alt="" className="w-16 h-16 rounded-2xl" />
+          <img src="/fav-logo.jpg" alt="" className="w-16 h-16 rounded-2xl" />
           <h1 className="text-xl md:text-3xl font-bold text-[#ff5103]">
             Crowd Nest
           </h1>

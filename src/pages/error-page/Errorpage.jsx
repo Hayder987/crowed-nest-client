@@ -12,7 +12,7 @@ const Errorpage = () => {
             <h3 className="text-2xl md:text-5xl font-semibold text-center mb-6">{error.statusText}</h3>
             <h3 className="text-2xl md:text-4xl font-semibold text-center mb-8">{error.error.message}</h3>
              <p className="">
-             <DotLottieReact src="/public/error-animation.json" loop autoplay />
+             <DotLottieReact src="/error-animation.json" loop autoplay />
              </p>
            </div> 
         </div>
