@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
      const {registerUser, updateUser} = useContext(AuthContext)
@@ -65,6 +66,7 @@ const Register = () => {
       }}
       className="min-h-[70vh] lg:min-h-[90vh] p-4 md:p-8 lg:p-20 flex justify-center items-center"
     >
+      <Helmet><title>Register || Crowed Nest</title></Helmet>
       <div className="min-w-[100%] relative lg:min-w-[600px] rounded-xl bg-opacity-40 hover:bg-opacity-60 bg-[#010716] py-12 px-16 mx-auto mb-16">
         <h1 className="text-4xl font-bold text-center mb-6 text-white">Register</h1>
         <p className="text-center text-red-400">{errMessage}</p>

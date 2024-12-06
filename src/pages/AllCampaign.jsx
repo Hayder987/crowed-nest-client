@@ -5,6 +5,7 @@ import { MdOutlineUpdateDisabled } from "react-icons/md";
 import { useNavigate } from "react-router";
 import { CirclesWithBar } from "react-loader-spinner";
 import { Zoom } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 const AllCampaign = () => {
   const { theme } = useContext(UtilitiContext);
@@ -36,6 +37,7 @@ const AllCampaign = () => {
         theme ? "bg-slate-100" : "bg-gray-900"
       } min-h-[90vh] p-4 md:p-12 `}
     >
+      <Helmet><title>All Campaign || Crowed Nest</title></Helmet>
       {
         loading? <div className="flex justify-center">
             <CirclesWithBar

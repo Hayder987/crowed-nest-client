@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import UpdateForm from "../components/updateForm/UpdateForm";
 import { CirclesWithBar } from "react-loader-spinner";
 import { Zoom } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 const UpdatePage = () => {
   const { theme } = useContext(UtilitiContext);
@@ -23,6 +24,7 @@ const UpdatePage = () => {
 
   return (
     <div className="">
+      <Helmet><title>Update || Crowed Nest</title></Helmet>
       {loading ? (
         <div className="flex justify-center">
           <CirclesWithBar
@@ -40,6 +42,7 @@ const UpdatePage = () => {
         </div>
       ) : (
         <div className="">
+          
           {theme ? (
             <div
               style={{

@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { UtilitiContext } from "../Context/UtilitiesProvider";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const DetailsPage = () => {
   const [loading, setLoading] = useState(true);
@@ -101,6 +102,7 @@ const DetailsPage = () => {
         theme ? "bg-slate-100" : "bg-gray-900"
       } min-h-[90vh] p-4 md:p-12 `}
     >
+      <Helmet><title>Details || Crowed Nest</title></Helmet>
       {loading ? (
         <div className="flex justify-center">
           <CirclesWithBar

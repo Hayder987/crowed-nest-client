@@ -28,5 +28,7 @@ The purpose of Crowd Nest is to provide a platform where users can showcase thei
 - react-tooltip: To display tooltips with detailed information
 - sweetalert2: For customizable alert boxes and confirmations
 - swiper: For implementing sliders and carousels
+- react-awesome-reveal: For Beautiful Animation
+
 
 

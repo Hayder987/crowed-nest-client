@@ -3,12 +3,14 @@ import banner from '../assets/whiteBanner.jpg'
 import CampaignForm from '../components/campaignForm/CampaignForm';
 import { UtilitiContext } from '../Context/UtilitiesProvider';
 import { Zoom } from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet';
 
 
 const AddNewCampaign = () => {
     const {theme} = useContext(UtilitiContext)
     return (
         <div className="">
+            <Helmet><title>Add Campaign || Crowed Nest</title></Helmet>
             {
                 theme?<div
                 style={{

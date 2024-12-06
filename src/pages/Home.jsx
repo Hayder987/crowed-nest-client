@@ -5,6 +5,7 @@ import GalleryPhoto from "../components/homeComponets/Gallery";
 import About from "../components/homeComponets/About";
 import SatatusBar from "../components/homeComponets/SatatusBar";
 import { Fade, Slide } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 
 const Home = () => {
@@ -23,6 +24,9 @@ const Home = () => {
 
     return (
         <div>
+          <Helmet>
+            <title>Home || Crowed Nest</title>
+          </Helmet>
          <Fade>
           <Banner></Banner>
           </Fade> 

@@ -5,6 +5,7 @@ import { AuthContext } from "../Context/AuthProvider";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Swal from "sweetalert2";
 import { Slide } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 const MyDonations = () => {
   const { theme } = useContext(UtilitiContext);
@@ -56,6 +57,7 @@ const MyDonations = () => {
         theme ? "bg-slate-100" : "bg-gray-900"
       } min-h-[90vh] p-4 md:p-12 `}
     >
+      <Helmet><title>My Donation || Crowed Nest</title></Helmet>
       {loading ? (
         <div className="flex justify-center">
           <CirclesWithBar
