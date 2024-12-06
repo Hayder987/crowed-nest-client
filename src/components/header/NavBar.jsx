@@ -46,7 +46,7 @@ const NavBar = () => {
           
         </div>
         
-        <div className="flex gap-2 justify-center items-center">
+        <div className="flex gap-4 justify-center items-center">
           {
             loading?"":
             <div className="">

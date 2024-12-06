@@ -74,7 +74,8 @@ const DetailsPage = () => {
         campaignType,
         donateAmount,
         donateDate,
-        deadline
+        deadline,
+        imgPath
     }
 
     fetch(`http://localhost:4000/donation`,{
@@ -156,7 +157,7 @@ const DetailsPage = () => {
             </div>
             <p className="text-2xl font-bold mb-4 text-[#ff5103]">{title}</p>
             <p className="text-xl">
-              <span className="font-bold ">Total Amount: </span>
+              <span className="font-bold ">Minimum Amount: </span>
               <span className="">{amount} $</span>
             </p>
             <div className="divider"></div>

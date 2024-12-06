@@ -21,7 +21,7 @@ const Card = ({item}) => {
             <p className="mb-4">{description.slice(0,70)} ...</p>
             <div className="flex justify-between">
               <p className="text-sm">
-                <span className="font-bold ">Total Amount: </span>
+                <span className="font-bold ">Minimum Amount: </span>
                 <span className="">{amount} $</span>
               </p> 
               <p className="text-sm">

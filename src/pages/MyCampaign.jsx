@@ -118,7 +118,7 @@ const MyCampaign = () => {
                     <th>SL</th>
                     <th>Campaign Type</th>
                     <th>Campaign Name</th>
-                    <th>Amount</th>
+                    <th>Minimum Amount</th>
                     <th>Published</th>
                     <th>Deadline</th>
                     <th>Action</th>

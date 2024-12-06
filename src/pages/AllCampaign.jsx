@@ -83,7 +83,7 @@ const AllCampaign = () => {
                 <th>SL</th>
                 <th>User</th>
                 <th>campaign Name</th>
-                <th>Amount</th>
+                <th>Minimum Amount</th>
                 <th>Deadline</th>
                 <th>Action</th>
               </tr>
