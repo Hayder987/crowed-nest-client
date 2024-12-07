@@ -76,7 +76,9 @@ const DetailsPage = () => {
         donateAmount,
         donateDate,
         deadline,
-        imgPath
+        imgPath,
+        description,
+        amount,
     }
 
     fetch(`https://crowd-nest-server-eight.vercel.app/donation`,{

@@ -41,7 +41,7 @@ const LoginPage = () => {
     .then(()=>{
      state? navigate(state): navigate('/')
       Swal.fire({
-        position: "top-end",
+        position: "top-middle",
         icon: "success",
         title: "User Login SuccessFully!",
         showConfirmButton: false,
@@ -63,7 +63,7 @@ const LoginPage = () => {
     .then(()=>{
       state? navigate(state): navigate('/')
       Swal.fire({
-        position: "top-end",
+        position: "top-middle",
         icon: "success",
         title: "User Login SuccessFully!",
         showConfirmButton: false,

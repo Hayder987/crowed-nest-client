@@ -18,6 +18,7 @@ const NavBar = () => {
   const LogoutHandler = ()=>{
     userLogout()
     .then(()=>{
+      navigate('/login')
       Swal.fire({
         position: "top-end",
         icon: "info",
