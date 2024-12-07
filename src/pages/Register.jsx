@@ -1,13 +1,14 @@
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import background from "../assets/background-1.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
-     const {registerUser, updateUser} = useContext(AuthContext)
+     const {registerUser, updateUser,  googleUserLogin} = useContext(AuthContext)
      const [errMessage, setErrMessage] = useState(null)
      const upperCase = /^(?=.*[A-Z]).+$/;
      const lowerCase = /^(?=.*[a-z]).+$/;
@@ -43,7 +44,7 @@ const Register = () => {
           updateUser(name, imgPath)
           navigate('/')
           Swal.fire({
-            position: "top-end",
+            position: "top-middle",
             icon: "success",
             title: "User Registration SuccessFully!",
             showConfirmButton: false,
@@ -52,9 +53,39 @@ const Register = () => {
           
         })
         .catch(err=>{
-          setErrMessage(err.message)
+          Swal.fire({
+            position: "top-middle",
+            icon: "error",
+            title: err.message,
+            
+          });
         })
     }
+
+    const googleLogin=()=>{
+      googleUserLogin()
+      .then(()=>{
+         navigate('/')
+        Swal.fire({
+          position: "top-middle",
+          icon: "success",
+          title: "User Login SuccessFully!",
+          showConfirmButton: false,
+          timer: 2000
+        }); 
+      })
+      .catch(err=>{
+        Swal.fire({
+          position: "top-middle",
+          icon: "error",
+          title: err.message,
+          
+        });
+      })
+    }
+  
+
+
 
   return (
     <div
@@ -122,11 +153,17 @@ const Register = () => {
           <div className="flex justify-center items-center bg-[#ff5103] rounded-full text-white py-3 px-6">
             <input type="submit" value="Register Now" className="w-full"/>
           </div>
-          <div className="">
-            <p className="text-white text-center">Have an Account? <Link to='/login'><span className="text-blue-500 underline"> Login Now</span></Link></p>
-          </div>
           
         </form>
+        <div className="flex justify-center items-center mb-3">
+            <button onClick={googleLogin} className="border-2 border-[#ff5103] mt-12 py-2 p-6 rounded-full w-full text-white flex justify-center items-center gap-4">
+                <span className="text-2xl"><FcGoogle /></span>
+                <span className="text-xl font-semibold">Sign With Google</span>
+            </button>
+        </div>
+        <div className="">
+            <p className="text-white text-center">Have an Account? <Link to='/login'><span className="text-blue-500 underline"> Login Now</span></Link></p>
+          </div>
         <p onClick={()=> setEye(!eye)} className="absolute top-[450px] lg:top-[455px] right-20">
           {
             eye?<span className="text-white text-xl"><FaEye /></span>:
