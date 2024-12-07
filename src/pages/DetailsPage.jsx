@@ -42,8 +42,7 @@ const DetailsPage = () => {
     published,
   } = campaign || {};
 
-  const donateHandler = e =>{
-    e.preventDefault();
+  const donateHandler = () =>{
     if(deadline<newDate){
       Swal.fire({
         icon: "info",
@@ -52,17 +51,8 @@ const DetailsPage = () => {
       });
         return
     }
-    const textAmount = e.target.amount.value;
-    if(isNaN(Number(textAmount))){
-      Swal.fire({
-        icon: "error",
-        title: "Amount",
-        text: "Please Enter Number Value!",
-      });
-        return
-    }
-
-    const donateAmount = parseInt(textAmount)
+    
+    const donateAmount = amount
     const name = user?. displayName;
     const email = user?.email;
 
@@ -90,10 +80,10 @@ const DetailsPage = () => {
     .then(()=>{
       Swal.fire({
         icon: "success",
-        title: "Congratulations!",
-        text: "Your Donation Bring New Hope!",
+        title: "Thank You!",
+        text: `Your Donation ${donateAmount} $ Bring New Hope!`,
       });
-      e.target.reset()
+      
     })
 
   }
@@ -171,23 +161,7 @@ const DetailsPage = () => {
             </p>
             <p className="text-sm">{description}</p>
             <div className="divider"></div>
-            <form onSubmit={donateHandler} className="">
-              <div className="form-control w-full mb-3">
-                <label className="label">
-                  <span className={`${theme ? "label-text" : "text-white"}`}>
-                   Enter donation amount
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  name="amount"
-                  placeholder="Amount"
-                  className="input input-bordered text-black"
-                  required
-                />
-              </div>
-              <input type="submit" value="Donate" className="py-3 w-full bg-[#ff5103] px-4 text-white font-semibold rounded-full" />
-            </form>
+            <button onClick={donateHandler}  className="py-3 w-full bg-[#ff5103] px-4 text-white font-semibold rounded-full" >Donate </button>
           </div>
         </div>
       )}
