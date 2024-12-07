@@ -99,6 +99,7 @@ const LoginPage = () => {
             <input
               type="email"
               name="email"
+              required
               id=""
               className="border-b-2 p-2 border-white bg-transparent w-full outline-none text-white"
             />
@@ -111,12 +112,13 @@ const LoginPage = () => {
             <input
               type={`${eye?'password':'text'}`}
               name="password"
+              required
               id=""
               className="border-b-2 p-2 border-white bg-transparent w-full outline-none text-white"
             />
           </div>
-          <div className="flex justify-center items-center bg-[#ff5103] rounded-full text-white py-3 px-6">
-            <input type="submit" value="Login Now" className="w-full cursor-pointer"/>
+          <div className="flex justify-center items-center ">
+            <input type="submit" value="Login Now" className="w-full cursor-pointer bg-[#ff5103] rounded-full text-white py-3 px-6"/>
           </div>
           
         </form>
