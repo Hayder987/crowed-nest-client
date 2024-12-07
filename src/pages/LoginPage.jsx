@@ -116,7 +116,7 @@ const LoginPage = () => {
             />
           </div>
           <div className="flex justify-center items-center bg-[#ff5103] rounded-full text-white py-3 px-6">
-            <input type="submit" value="Login Now" className="w-full"/>
+            <input type="submit" value="Login Now" className="w-full cursor-pointer"/>
           </div>
           
         </form>
