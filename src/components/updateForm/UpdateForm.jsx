@@ -13,7 +13,8 @@ const UpdateForm = ({campaign}) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate()
 
-  const [startDate, setStartDate] = useState(new Date());
+
+  const [startDate, setStartDate] = useState(new Date(campaign.deadline));
 
 
   const formatDate = (date) => {
