@@ -46,7 +46,7 @@ const NavBar = () => {
           }
          </div>
         </div>
-        <div className={`bg-[#140701] ${menu?"flex":'hidden'} absolute top-24 left-0 z-10  p-6 md:hidden w-full`}>
+        <div className={`bg-[#140701] ${menu?"flex":'hidden'} absolute top-24 left-0 z-10  p-6 lg:hidden w-full`}>
           <ul onClick={()=> setMenu(!menu)} className="flex flex-col gap-4 text-white text-xl">
             <NavLink to='/'><li className="">Home</li></NavLink>
             <NavLink to='/allcampaign'><li className="">All Campaign</li></NavLink>
