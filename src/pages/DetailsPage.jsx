@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { CirclesWithBar } from "react-loader-spinner";
-import { useParams } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { UtilitiContext } from "../Context/UtilitiesProvider";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
@@ -19,6 +19,8 @@ const DetailsPage = () => {
   const newDate = formatDate(date);
   const donateDate = formatDate(date);
   const {user} = useContext(AuthContext)
+  const navigate = useNavigate()
+  const {pathname} = useLocation()
 
 
   useEffect(() => {
@@ -51,6 +53,25 @@ const DetailsPage = () => {
       });
         return
     }
+
+
+    if(!user){
+      Swal.fire({
+        title: "You Need To Login First?",
+        text: "Are You Want To Login!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Agreed!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/login', { state: { from: pathname } });
+        }
+      });
+       return 
+    }
+    
     
     const donateAmount = amount
     const name = user?. displayName;

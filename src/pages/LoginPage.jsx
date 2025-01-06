@@ -15,6 +15,7 @@ const LoginPage = () => {
   const navigate = useNavigate()
   const {state} = useLocation()
   const [eye, setEye] = useState(true)
+  const from = state?.from || '/';
 
   const loginHandler = e =>{
     e.preventDefault()
@@ -39,7 +40,7 @@ const LoginPage = () => {
 
     loginUser(email, password)
     .then(()=>{
-     state? navigate(state): navigate('/')
+      navigate(from)
       Swal.fire({
         position: "top-middle",
         icon: "success",
@@ -61,7 +62,7 @@ const LoginPage = () => {
   const googleLogin=()=>{
     googleUserLogin()
     .then(()=>{
-      state? navigate(state): navigate('/')
+      navigate(from)
       Swal.fire({
         position: "top-middle",
         icon: "success",
