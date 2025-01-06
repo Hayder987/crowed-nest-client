@@ -20,7 +20,7 @@ const Banner = () => {
         {/* slide-1 */}
         <SwiperSlide>
           <div
-            className="flex flex-col h-[400px] lg:h-[700px]"
+            className="flex flex-col min-h-[80vh]"
             style={{
               backgroundImage:
                 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.ibb.co.com/Fm5R5z8/banner-1.jpg")',
@@ -59,7 +59,7 @@ const Banner = () => {
         {/* slide-2 */}
         <SwiperSlide>
           <div
-            className=" flex flex-col h-[400px] lg:h-[700px]"
+            className=" flex flex-col min-h-[80vh]"
             style={{
               backgroundImage:
                 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.ibb.co.com/cNJcZsX/Innovation-Definition.jpg")',
@@ -98,7 +98,7 @@ const Banner = () => {
         {/* slide-3 */}
         <SwiperSlide>
           <div
-            className=" flex flex-col h-[400px] lg:h-[700px]"
+            className=" flex flex-col min-h-[80vh]"
             style={{
               backgroundImage:
                 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.ibb.co.com/gwLj4hG/banner3.webp")',
@@ -135,7 +135,7 @@ const Banner = () => {
         {/* slide-4 */}
         <SwiperSlide>
           <div
-            className=" flex flex-col h-[400px] lg:h-[700px]"
+            className=" flex flex-col min-h-[80vh]"
             style={{
               backgroundImage:
                 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.ibb.co.com/94PQY8V/banner-4.webp")',

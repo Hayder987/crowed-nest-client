@@ -52,7 +52,7 @@ const GalleryPhoto = () => {
       ];
 
     return (
-        <div className="container mx-auto mb-16 md:mb-28">
+        <div className="container mx-auto mb-16 md:mb-32">
           <h1 className="text-3xl md:text-5xl font-bold text-center mb-6">Together We Create</h1>  
           <p className="text-base w-full md:w-3/4 mx-auto lg:text-xl text-center mb-12 md:mb-16"> Dive into moments that showcase the beauty of teamwork 
             and collaboration. Every image is a reminder of what we can achieve when 

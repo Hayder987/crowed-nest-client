@@ -32,7 +32,7 @@ const NavBar = () => {
  
   return (
     <div className={`${theme ? "light-theme" : "dark-theme"} sticky bg-gray-500 z-10 top-0`}>
-      <nav className="flex relative justify-between items-center px-2 py-4 md:px-8 mx-auto">
+      <nav className="flex relative justify-between items-center px-2 py-3 md:px-8 mx-auto">
         <div className="flex justify-center items-center gap-2">
           <img src="/fav-logo.jpg" alt="" className="w-16 h-16 rounded-2xl" />
           <h1 className="text-xl md:text-3xl font-bold text-[#ff5103]">

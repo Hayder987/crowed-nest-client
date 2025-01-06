@@ -54,7 +54,7 @@ const AllCampaign = () => {
           />
         </div>:
         <div
-        className={`lg:max-w-[1200px] min-h-[60vh] mx-auto ${
+        className={`container min-h-[60vh] mx-auto ${
           theme ? "bg-white" : "bg-opacity-30 bg-gray-600"
         } rounded-xl p-6 md:p-10 lg:p-16 `}
       >
@@ -86,6 +86,7 @@ const AllCampaign = () => {
               >
                 <th>SL</th>
                 <th>User</th>
+                <th>Image</th>
                 <th>campaign Name</th>
                 <th>Minimum Amount</th>
                 <th>Deadline</th>
@@ -101,6 +102,9 @@ const AllCampaign = () => {
                 >
                   <th>{index + 1}</th>
                   <td>{item?.username}</td>
+                  <td>
+                    <img src={item?.imgPath} alt="" className="w-12 h-12 rounded-full" />
+                  </td>
                   <td>{item?.title}</td>
                   <th>{item?.amount}</th>
                   <td

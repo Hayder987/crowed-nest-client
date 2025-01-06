@@ -91,7 +91,7 @@ const About = () => {
             <div className="">
               <Link to="/allcampaign">
                 {" "}
-                <button className="py-3 px-6 bg-[#ff5103] text-white">
+                <button className="py-3 px-6 rounded-full bg-[#ff5103] text-white">
                   Donate Now
                 </button>
               </Link>
