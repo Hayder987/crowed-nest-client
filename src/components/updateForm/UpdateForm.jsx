@@ -50,7 +50,7 @@ const UpdateForm = ({campaign}) => {
       amount,
       deadline,
     };
-    fetch(`https://crowd-nest-server-eight.vercel.app/campaign/${campaign?._id}`, {
+    fetch(`http://localhost:4000/campaign/${campaign?._id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(info),

@@ -22,7 +22,7 @@ const DetailsPage = () => {
 
 
   useEffect(() => {
-    fetch(`https://crowd-nest-server-eight.vercel.app/campaign/${id}`)
+    fetch(`http://localhost:4000/campaign/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCampaign(data);
@@ -71,7 +71,7 @@ const DetailsPage = () => {
         amount,
     }
 
-    fetch(`https://crowd-nest-server-eight.vercel.app/donation`,{
+    fetch(`http://localhost:4000/donation`,{
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify(donateInfo)

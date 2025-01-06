@@ -14,7 +14,7 @@ const MyDonations = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`https://crowd-nest-server-eight.vercel.app/donation/${user?.email}`)
+    fetch(`http://localhost:4000/donation/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setAllData(data);
@@ -34,7 +34,7 @@ const MyDonations = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://crowd-nest-server-eight.vercel.app/donation/${user?.email}`,
+          `http://localhost:4000/donation/${user?.email}`,
           {
             method: "DELETE",
           }

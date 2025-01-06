@@ -23,7 +23,7 @@ const MyCampaign = () => {
   const newDate = formatDate(date);
 
   useEffect(() => {
-    fetch(`https://crowd-nest-server-eight.vercel.app/user/${user?.email}`)
+    fetch(`http://localhost:4000/user/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setAllData(data);
@@ -43,7 +43,7 @@ const MyCampaign = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://crowd-nest-server-eight.vercel.app/campaigns/${id}`,{
+        fetch(`http://localhost:4000/campaigns/${id}`,{
           method:"DELETE"
         })
           .then((res) => res.json())

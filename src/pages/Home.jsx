@@ -13,7 +13,7 @@ const Home = () => {
      const [loading, setLoading] = useState(true)
 
      useEffect(()=>{
-      fetch('https://crowd-nest-server-eight.vercel.app/recent')
+      fetch('http://localhost:4000/recent')
       .then(res=> res.json())
       .then(data=> {
         setAllData(data)
