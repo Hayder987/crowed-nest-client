@@ -10,7 +10,7 @@ const MainLayout = () => {
     return (
         <div className={`${theme?"light-theme":"dark-theme"}`}>
             <NavBar></NavBar>
-            <div className="min-h-[70vh]">
+            <div className="min-h-[calc(100vh-100px)]">
                <Outlet></Outlet>
             </div>
             <Footer></Footer>

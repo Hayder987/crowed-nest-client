@@ -31,8 +31,8 @@ const NavBar = () => {
   }
  
   return (
-    <div>
-      <nav className="flex relative justify-between items-center px-2 py-4 md:w-11/12 mx-auto">
+    <div className={`${theme ? "light-theme" : "dark-theme"} sticky bg-gray-500 z-10 top-0`}>
+      <nav className="flex relative justify-between items-center px-2 py-4 md:px-8 mx-auto">
         <div className="flex justify-center items-center gap-2">
           <img src="/fav-logo.jpg" alt="" className="w-16 h-16 rounded-2xl" />
           <h1 className="text-xl md:text-3xl font-bold text-[#ff5103]">
@@ -50,21 +50,25 @@ const NavBar = () => {
           <ul onClick={()=> setMenu(!menu)} className="flex flex-col gap-4 text-white text-xl">
             <NavLink to='/'><li className="">Home</li></NavLink>
             <NavLink to='/allcampaign'><li className="">All Campaign</li></NavLink>
-            <NavLink to="/newcampaign"><li className="">Add New Campaign</li></NavLink>
-            <NavLink to='/mycampaign'><li className="">My Campaign</li></NavLink>
-            <NavLink to='/mydonation'><li className="">My Donations</li></NavLink>
+            <NavLink to='/about'><li className="">About</li></NavLink>
+            {user&&<NavLink to="/newcampaign"><li className="">Add New Campaign</li></NavLink>}
+            {user && <NavLink to='/mycampaign'><li className="">My Campaign</li></NavLink>}
+            {user && <NavLink to='/mydonation'><li className="">My Donations</li></NavLink>}
+            <NavLink to='/contact'><li className="">Contact Us</li></NavLink>
           </ul>
           
         </div>
 
 
         <div className="">
-          <ul className="hidden lg:flex justify-center items-center gap-8 cursor-pointer">
+          <ul className="hidden lg:flex justify-center items-center gap-6 cursor-pointer">
             <NavLink to='/'><li className="">Home</li></NavLink>
             <NavLink to='/allcampaign'><li className="">All Campaign</li></NavLink>
-            <NavLink to="/newcampaign"><li className="">Add New Campaign</li></NavLink>
-            <NavLink to='/mycampaign'><li className="">My Campaign</li></NavLink>
-            <NavLink to='/mydonation'><li className="">My Donations</li></NavLink>
+            <NavLink to='/about'><li className="">About</li></NavLink>
+            {user&&<NavLink to="/newcampaign"><li className="">Add New Campaign</li></NavLink>}
+            {user && <NavLink to='/mycampaign'><li className="">My Campaign</li></NavLink>}
+            {user && <NavLink to='/mydonation'><li className="">My Donations</li></NavLink>}
+            <NavLink to='/contact'><li className="">Contact Us</li></NavLink>
           </ul>
           
         </div>
@@ -127,7 +131,7 @@ const NavBar = () => {
           <div className="w-full">
             <h1 className="text-center text-2xl font-semibold text-black">Welcome!</h1>
             <div className="flex justify-center items-center my-6">
-              <img src={user?.photoURL} alt="" className="w-28 h-28" />
+              <img src={user?.photoURL} alt="" referrerPolicy="no-referrer" className="w-28 h-28 " />
             </div>
             <h1 className="text-center text-2xl font-semibold text-black">{user?.displayName}</h1>
             <div className="flex justify-center my-4">

@@ -11,6 +11,8 @@ import Register from "../pages/Register";
 import PrivateRoute from "../private/PrivateRoute";
 import DetailsPage from "../pages/DetailsPage";
 import UpdatePage from "../pages/UpdatePage";
+import AboutUsPage from "../pages/AboutUsPage";
+import ContactUsPage from "../pages/ContactUsPage";
 
 
 export const router = createBrowserRouter([
@@ -27,6 +29,15 @@ export const router = createBrowserRouter([
                 path:'/allcampaign',
                 element:<AllCampaign></AllCampaign>
             },
+            {
+                path:'/about',
+                element:<AboutUsPage></AboutUsPage>
+            },
+            {
+                path:'/contact',
+                element:<ContactUsPage></ContactUsPage>
+            },
+
             {
                 path:'/newcampaign',
                 element:<PrivateRoute><AddNewCampaign></AddNewCampaign></PrivateRoute>
