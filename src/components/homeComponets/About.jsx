@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 const About = () => {
   return (
-    <div className="container mx-auto mb-16 md:mb-28">
+    <div className="container mx-auto mb-16 md:mb-20">
       <h1 className="text-3xl md:text-5xl font-bold text-center mb-6">
         About Our Campaign
       </h1>
@@ -32,7 +32,7 @@ const About = () => {
           </Slide>
         </div>
         {/*  */}
-        <div className="md:w-1/2 p-6 mb-16 md:mb-28">
+        <div className="md:w-1/2 p-6 mb-16 md:mb-20">
           <Slide direction="right">
           <div className="">
             <h1 className="text-2xl md:text-3xl font-semibold mb-6">

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 const CampaignCard = ({ loading, allData }) => {
   const navigate = useNavigate()
   return (
-    <div className="container mx-auto mb-16 md:mb-28">
+    <div className="container mx-auto mb-16 md:mb-20">
       <div className=" p-4 md:p-8 lg:p-14">
         <div className="mb-12 md:mb-16">
           <h1 className="text-3xl md:text-5xl font-bold text-center mb-6">
