@@ -52,7 +52,7 @@ const CampaignCard = ({ loading, allData }) => {
                 </h3>
               </div>
             ) : (
-              <div className="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 {allData.map((item) => (
                   <Card key={item._id} item={item}></Card>
                 ))}
