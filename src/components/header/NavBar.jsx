@@ -54,7 +54,7 @@ const NavBar = () => {
             {user&&<NavLink to="/newcampaign"><li className="">Add New Campaign</li></NavLink>}
             {user && <NavLink to='/mycampaign'><li className="">My Campaign</li></NavLink>}
             {user && <NavLink to='/mydonation'><li className="">My Donations</li></NavLink>}
-            <NavLink to='/contact'><li className="">Contact Us</li></NavLink>
+            <NavLink to='/review'><li className="">Review</li></NavLink>
           </ul>
           
         </div>
@@ -68,7 +68,7 @@ const NavBar = () => {
             {user&&<NavLink to="/newcampaign"><li className="">Add New Campaign</li></NavLink>}
             {user && <NavLink to='/mycampaign'><li className="">My Campaign</li></NavLink>}
             {user && <NavLink to='/mydonation'><li className="">My Donations</li></NavLink>}
-            <NavLink to='/contact'><li className="">Contact Us</li></NavLink>
+            <NavLink to='/review'><li className="">Review</li></NavLink>
           </ul>
           
         </div>

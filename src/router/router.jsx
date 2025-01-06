@@ -12,7 +12,7 @@ import PrivateRoute from "../private/PrivateRoute";
 import DetailsPage from "../pages/DetailsPage";
 import UpdatePage from "../pages/UpdatePage";
 import AboutUsPage from "../pages/AboutUsPage";
-import ContactUsPage from "../pages/ContactUsPage";
+import Review from "../pages/Review";
 
 
 export const router = createBrowserRouter([
@@ -34,8 +34,8 @@ export const router = createBrowserRouter([
                 element:<AboutUsPage></AboutUsPage>
             },
             {
-                path:'/contact',
-                element:<ContactUsPage></ContactUsPage>
+                path:'/review',
+                element:<Review></Review>
             },
 
             {

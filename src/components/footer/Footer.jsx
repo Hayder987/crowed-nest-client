@@ -44,7 +44,7 @@ const Footer = () => {
           {/* author */}
           <div className="divider"></div>
           <div className="">
-          <p className="text-xl font-medium">&copy; {new Date().getFullYear()} All rights reserved by Hayder 2025</p>
+          <p className="text-xl font-medium">&copy; {new Date().getFullYear()} All rights reserved by Hayder Ali</p>
           </div>
         </div>
       </footer>
