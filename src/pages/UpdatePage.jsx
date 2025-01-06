@@ -14,7 +14,7 @@ const UpdatePage = () => {
   const [campaign, setCampaign] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:4000/campaign/${id}`)
+    fetch(`https://crowd-nest-server-eight.vercel.app/campaign/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCampaign(data);

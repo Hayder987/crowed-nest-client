@@ -6,6 +6,7 @@ import About from "../components/homeComponets/About";
 import SatatusBar from "../components/homeComponets/SatatusBar";
 import { Fade, Slide } from "react-awesome-reveal";
 import { Helmet } from "react-helmet";
+import ReviewSection from "../components/homeComponets/ReviewSection";
 
 
 const Home = () => {
@@ -13,7 +14,7 @@ const Home = () => {
      const [loading, setLoading] = useState(true)
 
      useEffect(()=>{
-      fetch('http://localhost:4000/recent')
+      fetch('https://crowd-nest-server-eight.vercel.app/recent')
       .then(res=> res.json())
       .then(data=> {
         setAllData(data)
@@ -36,9 +37,8 @@ const Home = () => {
          ></CampaignCard> 
          <GalleryPhoto></GalleryPhoto>
          <About></About>
-         <Slide direction="up">
+         <ReviewSection></ReviewSection>  
          <SatatusBar></SatatusBar>
-         </Slide>
         </div>
     );
 };

@@ -40,7 +40,7 @@ const Review = () => {
       date,
     };
 
-    await axios.post(`http://localhost:4000/review`, review).then(() => {
+    await axios.post(`https://crowd-nest-server-eight.vercel.app/review`, review).then(() => {
       Swal.fire({
         position: "top-end",
         icon: "success",

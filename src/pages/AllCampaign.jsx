@@ -22,7 +22,7 @@ const AllCampaign = () => {
   const newDate = formatDate(date);
 
   useEffect(() => {
-    fetch("http://localhost:4000/campaigns")
+    fetch("https://crowd-nest-server-eight.vercel.app/campaigns")
       .then((res) => res.json())
       .then((data) => {
         sort?setAllData([...allData].sort((a, b)=> b?.amount - a?.amount)):
