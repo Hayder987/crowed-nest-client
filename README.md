@@ -46,7 +46,7 @@ Follow these steps to run the Crowd Nest application on your local machine:
 
 2. **Navigate to the project directory:**
    ```bash
-   cd crowd-nest
+   cd crowed-nest-client
    ```
 
 3. **Install dependencies:**
@@ -67,7 +67,7 @@ Follow these steps to run the Crowd Nest application on your local machine:
 
 ## 🔗 Relevant Links
 - **GitHub Client Repository:** [Crowd Nest client Repository](https://github.com/Hayder987/crowed-nest-client)
-- **Live Application:** [Crowd Nest server Repository](https://github.com/Hayder987/crowed-nest-server)
+- **GitHub Server Repository:** [Crowd Nest server Repository](https://github.com/Hayder987/crowed-nest-server)
 
 ---
 
