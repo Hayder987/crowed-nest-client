@@ -31,4 +31,52 @@ The purpose of Crowd Nest is to provide a platform where users can showcase thei
 - react-awesome-reveal: For Beautiful Animation
 
 
+## 🖥️ Running the Project Locally
+Follow these steps to run the Crowd Nest application on your local machine:
+
+### Prerequisites
+- Install [Node.js](https://nodejs.org/).
+- Install [Git](https://git-scm.com/).
+
+### Steps
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Hayder987/crowed-nest-client
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd crowd-nest
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Run the application:**
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and go to `http://localhost:5173` to view the app.
+
+---
+
+
+
+## 🔗 Relevant Links
+- **GitHub Client Repository:** [Crowd Nest client Repository](https://github.com/Hayder987/crowed-nest-client)
+- **Live Application:** [Crowd Nest server Repository](https://github.com/Hayder987/crowed-nest-server)
+
+---
+
+Thank you for exploring **Crowd Nest**! Feel free to contribute, report issues, or provide feedback to make this project better. 🙌
+
+## Give Me FeedBack On
+### (https://hayder-ali.web.app/)
+
+
+
+
 
